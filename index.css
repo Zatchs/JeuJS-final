@@ -50,7 +50,7 @@ p {
     padding: 0.3rem;
     line-height: 1;
     border-radius: 1rem;
-    
+
 }
 
 .multiplicateur {
@@ -134,10 +134,73 @@ img {
     width : auto;
     height : 200px;
     position: relative;
-    
+
 }
 
 .bro {
     min-height: 200px;
     text-align: center;
+}
+
+.vide {
+    height: 50px;
+}
+
+@media (max-width:1400px) {
+    .button {
+        margin-top : 20px;
+        margin-bottom : 20px;
+    }
+
+    *:before, *:after {
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 5rem;
+        line-height: 1;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.7rem;
+    }
+
+    .score {
+        background: rgba(255,255,255,0.2);
+        padding: 0.3rem;
+        line-height: 1;
+        border-radius: 1rem;
+
+    }
+
+    .multiplicateur {
+        font-size : 2rem;
+    }
+
+    .chrono {
+        padding: 0.3rem;
+        font-size : 2rem;
+    }
+
+    .game {
+        width: 800px;
+        height: 300px;
+    }
+
+    .trou:after {
+        height: 50px;
+        z-index: 2;
+        bottom: -85px;
+        padding-top: 60px;
+        width: 100%;
+    }
+
+    .romain {
+        background-size: 43%;
+    }
+
 }
