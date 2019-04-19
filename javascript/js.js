@@ -11,8 +11,8 @@ let score = 0; //On dit que le score est à 0.
 let multiplicateur = 1; // On dit que le multiplicateur comme à 1
 
 
-// Pour gerer le temps en seconde 
-var cpt = 20;
+// Pour gerer le temps en seconde
+var cpt = 20; // 20 secondes
 var x;
 function decompte() {
     if (cpt >= 0) {
@@ -23,19 +23,33 @@ function decompte() {
         }
         document.getElementById("chrono").innerHTML = cpt + sec;
         cpt--;
-        x = setTimeout("decompte()", 1000);
+        x = setTimeout("decompte()", 1000); //On retire 1 seconde chaque seconde.
+
 }
 }
 
-// Pour faire pop les images avec un temps aléatoire
+function startGame() {
+    scoreBoard.textContent = 0; //
+    multiplie.textContent = 1;
+    timeUp = false; // Pour redire qu'au lancement de la partie, le temps de la partie n'est pas terminé
+    score = 0;
+    multiplicateur = 1;
+    apparait(); // Pour lancer la fonction apparait au démarrage
+    setTimeout(() => timeUp = true, 20000); // La partie dure 20 secondes (20000)
+    decompte()
+    cpt= 20;
+}
+
+// Pour faire pop les images avec un temps aléatoire//////
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
+/////////////////////////////////////////////////////////
 
 function randomTrou(trous) {
     const idx = Math.floor(Math.random() * trous.length); // Apparition aléatoire des trous
     const trou = trous[idx]; // On dit que ce qui apparait aléatoirement doit etre dans un trou
-    if (trou === dernierTrou) { //si trou est utilisé plusieurs fois 
+    if (trou === dernierTrou) { //si trou est utilisé plusieurs fois
         return randomTrou(trous); // alors renvoyer la fonction
     }
     dernierTrou = trou; // On dit que le derniertrou est égal au trou utilisé
@@ -52,25 +66,13 @@ function apparait() { //Pour faire apparaitre les romains
     }, time);
 }
 
-function startGame() {
-    scoreBoard.textContent = 0; //
-    multiplie.textContent = 1;
-    timeUp = false; // Pour redire qu'au lancement de la partie, le temps de la partie n'est pas terminé
-    score = 0;
-    multiplicateur = 1;
-    apparait(); // Pour lancer la fonction apparait au démarrage
-    setTimeout(() => timeUp = true, 20000); // La partie dure 20 secondes (20000)
-    decompte()
-    cpt= 20;
-}
-
 function bonk(e) {
     if (!e.isTrusted) return; //Tricheur!
     score++; // Le score augmente quand on clique
-    if (score >= 10) {
-        score += 2;
-        multiplicateur = 2;
-        document.getElementById("brah").src = "images/romain7.gif"
+    if (score >= 10) { // si le socre est supérieur ou égal à 10
+        score += 2; // Le socre par clic est de 2 au lieu de 1 avant
+        multiplicateur = 2; // Le multiplicateur est de 2 (affichage)
+        document.getElementById("brah").src = "images/romain7.gif" // l'image va apparaitre dans la div id=brah
     }
     if (score >= 30) {
         score += 3;
@@ -122,14 +124,18 @@ function bonk(e) {
 
 romains.forEach(romain => romain.addEventListener('click', bonk));
 
+// Fonction qui permet de lire une musique sur le site
 var audio = new Audio('musique.mp3');
 audio.play();
+//////////////////////////////////////////////////////
 
-document.getElementById('punch').addEventListener('click', function () {
-    JouerSon();
-});
-
+//Fonction qui pemet, au click de la div id MonSon de faire jouer un son
 function JouerSon() {
     var sound = document.getElementById("MonSon");
     sound.play();
 }
+
+document.getElementById('punch').addEventListener('click', function () {
+    JouerSon();
+});
+//////////////////////////////////////////////
