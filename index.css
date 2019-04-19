@@ -5,19 +5,6 @@ html {
     text-align: center;
 }
 
-.button {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    margin-top : 50px;
-    margin-bottom : 20px;
-}
-
-*:before, *:after {
-    box-sizing: inherit;
-    margin-top: 30px;
-}
-
 body {
     padding: 0;
     margin: 0;
@@ -45,15 +32,19 @@ p {
     text-align: center;
 }
 
+.bro {
+    min-height: 200px;
+    text-align: center;
+}
+
 .score {
     background: rgba(255,255,255,0.2);
     padding: 0.3rem;
     line-height: 1;
     border-radius: 1rem;
-
 }
 
-.multiplicateur {
+.chrono {
     background: rgba(255,255,255,0.2);
     padding: 0.3rem;
     line-height: 1;
@@ -61,7 +52,15 @@ p {
     font-size : 3rem;
 }
 
-.chrono {
+.button {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    margin-top : 50px;
+    margin-bottom : 20px;
+}
+
+.multiplicateur {
     background: rgba(255,255,255,0.2);
     padding: 0.3rem;
     line-height: 1;
@@ -83,6 +82,11 @@ p {
     position: relative;
 }
 
+*:before, *:after {
+    box-sizing: inherit;
+    margin-top: 30px;
+}
+
 .trou:after {
     display: block;
     background: url("images/terre.jpg") bottom center no-repeat;
@@ -96,6 +100,10 @@ p {
     padding-top: 50px;
 }
 
+.trou.up .romain {
+    top: 0;
+}
+
 .romain {
     background: url("images/Romain.png") bottom center no-repeat;
     background-size: 80%;
@@ -104,10 +112,6 @@ p {
     width: 100%;
     height: 100%;
     transition: all 0.6s;
-}
-
-.trou.up .romain {
-    top: 0;
 }
 
 .alex {
@@ -137,10 +141,6 @@ img {
 
 }
 
-.bro {
-    min-height: 200px;
-    text-align: center;
-}
 
 .vide {
     height: 50px;
